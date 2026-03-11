@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Relative risk of developing various cancers - Tobacco prevention</title>
+    
+    <style>
+        header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            background-color: rgb(230, 120, 120) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+          body { 
+        font-family: Calibri, sans-serif !important; 
+        max-width: 600px; 
+        margin: 100px auto 50px auto !important;
+        padding-top: 40px !important;
+          }
+         h2 {
+        margin-bottom: 20px !important;
+    }
+    p{
+        margin-top: 10px !important;
+    }
+     p + label {
+        margin-top: 40px !important;
+     }
+        label { 
+            font-weight: bold; 
+            display: block; 
+            margin: 15px 0 5px; 
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+        input[type="range"] { 
+            width: 300px; 
+        }
+        .value-display { 
+            font-size: 1.2em; 
+            font-weight: bold;  
+            
+        }
+        .results { 
+            background: rgb(230, 120, 120); 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-top: 20px; 
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+        }
+        .results .result-item {
+            text-shadow: 2px 4px 6px rgba(0,0,0,0.1);
+        }
+        .results h3 {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            text-shadow: 2px 4px 6px rgba(0,0,0,0.1);
+        }
+        .result-item { 
+            margin: 10px 0; 
+            font-size: 1.1em; 
+        }
+        fieldset { 
+            border: 1px solid rgb(230, 120, 120); 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin: 20px 0; 
+        }
+        legend { 
+            font-weight: bold; 
+            padding: 0 5px; 
+        }
+        input[type="radio"] { 
+            margin-right: 8px; 
+            accent-color: rgb(230, 120, 120); 
+        }
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    margin: 10px;
+    background-color: rgb(228, 183, 183);
+    text-align: center;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration:none; 
+    color: rgb(0, 0, 0); 
+    font-size: 1rem;
+}
+a:hover{
+    color: rgb(92, 8, 51);
+}
+.navbar{
+    width: 100% !important;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 15px; 
+}
+.navbar .logo{
+    flex: 1;
+    min-width: 0;
+}
+    h2 {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #010101, #a17272);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));  
+    }
+.navbar .links,
+.navbar .action_btn {
+    display: none !important;
+}
+.navbar .toggle_btn {
+    display: block !important;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+    font-size: 2rem;
+    cursor: pointer;
+    order: 2.2;
+    flex-shrink: 0;
+    padding: 10px;
+    margin-left: 10px;
+}
+.navbar .toggle_btn:hover i {
+    color: rgb(92, 8, 51) !important;
+}
+.action_btn{
+    background-color:rgb(228, 183, 183);
+    color:rgb(0, 0, 0);
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition:0.2s ease;
+}
+.action_btn:hover{
+    scale: 1.5; 
+    color: rgb(255, 255, 255);
+}
+.action_btn:active{
+    transform: scale(0.95);
+}
+.dropdown_menu{
+    display: block !important;
+    position: absolute;
+    top: 75px; 
+    right: 1rem;
+    height: 0;
+    width: min(90vw, 300px); 
+    background: rgb(230, 120, 120);
+    backdrop-filter: blur;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    top: 85px;
+}
+.dropdown_menu.open{
+    height: 550px;
+}
+.dropdown_menu li{
+    padding: 0.8rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+.dropdown_menu .action_btn{
+    width: 100%; 
+    display: flex; 
+    justify-content: center;
+}
+section#hero{
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+#hero h1{
+    font-size: clamp(2rem, 5vw, 3rem); 
+    margin-bottom: 1rem;
+}
+.logo img { 
+    height: 80px;
+    width: auto;
+    display: block;
+}
+.logo a {
+    display: block;
+    line-height: 0;
+    text-decoration: none;
+}
+    details {
+        border: 1px solid rgb(230, 120, 120);
+        border-radius: 12px;
+        margin-bottom: 20px;        
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
+    }
+    summary {
+        padding: 25px 30px;         
+        background: rgb(230, 120, 120);      
+        color: rgb(0, 0, 0);               
+        cursor: pointer;            
+        font-weight: 500;           
+        font-size: 17px;            
+        line-height: 1.4;           
+        transition: all 0.3s ease;  
+        list-style: none;           
+        font-family: Calibri, sans-serif;  
+    }
+    summary:hover {
+        background: rgb(230, 120, 120);        
+        padding: 28px 32px;         
+    }
+    summary::-webkit-details-marker {
+        display: none;              
+    }
+    summary::-moz-list-bullet {
+        list-style-type: none;     
+    }
+    .contenu {
+        padding: 30px;              
+        background: rgb(228, 183, 183);          
+        line-height: 2.2;           
+        font-size: 16px;            
+        font-family: Calibri, sans-serif;  
+    }     
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#"><img src="logo_rose.png" alt="Prévention Tabac"></a></div> 
+        <ul class="links">
+            <li><a href="pr prix cig.html">Financial impact</a></li>
+            <li><a href="pr. imp ecologique.html">Environmental impact</a></li>
+            <li><a href="c humain picture.html">Health impact</a></li>
+            <li><a href="temps perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque AVC.html">Stroke</a></li>
+            <li><a href="rissque IHD.html">IHD</a></li>
+            <li><a href="risk infarctus du myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig él.html">Toxic substances in e-cigarettes</a></li>
+            
+        </ul> 
+            <a href="écriture fumée.html" class="action_btn">Back to home page</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="pr prix cig.html">Financial impact</a></li>
+            <li><a href="pr. imp ecologique.html">Environmental impact</a></li>
+            <li><a href="c humain picture.html">Health impact</a></li>
+            <li><a href="temps perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque AVC.html">Stroke</a></li>
+            <li><a href="rissque IHD.html">IHD</a></li>
+            <li><a href="risk infarctus du myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig él.html">Toxic substances in e-cigarettes</a></li>
+            <li><a href="écriture fumée.html" class="action_btn">Back to home page</a></li>
+        </div>
+    </header>
+
+    <h2>Relative risk of developing various cancers</h2>   
+     <details>
+        <summary>What is cancer ?</summary>
+        <div class="contenu">
+            <p>Cancer is a group of diseases characterised by abnormal cells that divide uncontrollably, infiltrating and destroying healthy tissue in the process. Cancer often has the ability to spread throughout the body.
+It is the second leading cause of death worldwide. However, survival rates are improving for many types of cancer thanks to advances in screening, treatment and prevention.
+</p>
+        
+    </details> 
+    <p>Select a body part to see the relative risk of a smoker developing cancer.</p>
+
+
+    <fieldset>
+        <legend>Select a body part !</legend>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="lung" name="age" value="lung" checked>lung
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="larynx" name="age" value="larynx"> larynx
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="pharynx" name="age" value="pharynx"> pharynx
+        </label>
+         <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="upper digestive tract " name="age" value="upper digestive tract "> upper digestive tract 
+         <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="oral cavity" name="age" value="oral cavity"> oral cavity
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="lower urinary tract" name="age" value="lower urinary tract"> lower urinary tract
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="nose-sinus" name="age" value="nose-sinus"> nose-sinus
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="cervix" name="age" value="cervix"> cervix
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="pancreas" name="age" value="pancreas"> pancreas
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="liver" name="age" value="liver"> liver
+        </label>
+        
+    </fieldset>
+
+      <br>
+ <details>
+        <summary>What is a relative risk (RR) ?</summary>
+        <div class="contenu">
+            <p>Relative risk (RR) is a measure that compares the likelihood of experiencing a health-related event (such as illness, injury, exposure to a risk factor, or death) in one group to the likelihood of experiencing the same event in another group. It does this by dividing the risk (incidence proportion, attack rate) in group 1 by the risk (incidence proportion, attack rate) in group 2. The two groups are usually differentiated by demographic factors such as gender (e.g. men versus women) or exposure to a presumed risk factor. The group of most interest is often called the 'exposed group', and the comparison group is called the 'unexposed group'.
+            This website always compares the risk for a smoker to that for a non-smoker. </p>
+            <br>
+           <p> In this case, the relative risk analysis compares the probability of a smoker developing cancer with that of a non-smoker.
+ the relative risk is 1, then smokers and non-smokers have the same risk of developing cancer.
+If the RR is less than 1, then smokers are at a lower risk.
+Conversely, if the RR is greater than 1, then smokers are at a greater risk of developing cancer than non-smokers. 
+For example, a relative risk of 9 for lung cancer means that a smoker is 9 times more likely to develop lung cancer than a non-smoker.</p>
+        </div>
+    </details>
+    <div class="results">
+
+       
+        <h3>Relative risk of a smoker developing cancer :</h3>
+        <div class="result-item" style="color:rgb(255, 216, 216); font-size: 1.2em; ">
+            <div style="height: 11px;"></div>
+            <span id="risque_cancer"></span> 
+            <br>
+            <br>
+            <img src="cancer.png" alt="Texte descriptif de l'image" style="width:150px; height: 180px;">
+        </div>
+    </div>
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function() {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-brain';
+        }
+
+        function calculerImpact() {
+    let risque_cancer = 0;
+
+    const age = document.querySelector('input[name="age"]:checked');
+
+
+    
+
+    if ( !age) return; 
+
+    if (age.value === "lung") risque_cancer = 8.96
+    else if (age.value === "larynx") risque_cancer = 6.98;
+    else if (age.value === "pharynx") risque_cancer = 6.76;
+    else if (age.value === "upper digestive tract") risque_cancer = 3.57;
+    else if (age.value === "oral cavity") risque_cancer = 3.43;
+    else if (age.value === "lower urinary tract") risque_cancer = 2.77;
+    else if (age.value === "nose-sinus") risque_cancer = 1.95;
+    else if (age.value === "cervix") risque_cancer = 1.83;
+    else if (age.value === "pancreas") risque_cancer = 1.70;
+    else risque_cancer = 1.56;  
+    
+
+    
+   
+
+
+    document.getElementById('risque_cancer').textContent = risque_cancer.toFixed(1);
+}
+
+          
+    
+        
+        window.onload = calculerImpact;
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.addEventListener('change', calculerImpact);
+});
+    </script>
+</body>
+</html>

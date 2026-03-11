@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 10px;
+    background-color: rgb(235, 197, 140);
+    text-align: center;
+}
+header {
+    width: 100vw;
+    position:relative;
+    left: 50%;
+    right: 50%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-top: 0;
+    background-color: rgb(192, 129, 34); 
+}
+
+
+li{list-style: none;}
+a{text-decoration:none; color: rgb(0, 0, 0); font-size: 1rem;}
+a:hover{color: rgb(92, 58, 8);
+}
+
+.navbar{
+    width: 100% !important;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 15px; 
+}
+
+.navbar .logo{
+    flex: 1;
+    min-width: 0;
+}
+
+.navbar .links,
+.navbar .action_btn {
+    display: none !important;
+}
+
+.navbar .toggle_btn {
+    display: block !important;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+    font-size: 2rem;
+    cursor: pointer;
+    order: 2.2;
+    flex-shrink: 0;
+    padding: 10px;
+    margin-left: 10px;
+}
+.navbar .toggle_btn:hover i {
+    color: rgb(92, 58, 8) !important;
+}
+
+    h2 {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #010101, rgb(135, 90, 22));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));  
+    }
+.action_btn{
+    background-color:rgb(192, 129, 34);
+    color:rgb(0, 0, 0);
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition:0.2s ease;
+}
+.action_btn:hover{scale: 1.5; color: rgb(255, 255, 255);}
+.action_btn:active{transform: scale(0.95);}
+
+.dropdown_menu{
+    display: block !important;
+    position: absolute;
+    top: 75px; 
+    right: 1rem;
+    height: 0;
+    width: min(90vw, 300px); 
+    background: rgb(226, 169, 90);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    top: 85px;
+}
+.dropdown_menu.open{height: 550px;}
+.dropdown_menu li{padding: 0.8rem; display: flex; align-items: center; justify-content: center;}
+.dropdown_menu .action_btn{width: 100%; display: flex; justify-content: center;}
+
+section#hero{
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+#hero h1{font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem;}
+
+.logo img { 
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+.logo a {
+    display: block;
+    line-height: 0;
+    text-decoration: none;
+}
+

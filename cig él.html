@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>toxic substances in e-cigarettes  - Tobacco prevention</title>
+    
+    <style>
+        header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            background-color: rgb(230, 120, 120) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+          body { 
+        font-family: Calibri, sans-serif !important; 
+        max-width: 600px; 
+        margin: 100px auto 50px auto !important;
+        padding-top: 40px !important;
+          }
+         h2 {
+        margin-bottom: 20px !important;
+    }
+    h1 {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #010101, #a17272);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));  
+    }
+    p{
+        margin-top: 10px !important;
+    }
+     p + label {
+        margin-top: 40px !important;
+     }
+        label { 
+            font-weight: bold; 
+            display: block; 
+            margin: 15px 0 5px; 
+        }
+        input[type="range"] { 
+            width: 300px; 
+        }
+        .value-display { 
+            font-size: 1.2em; 
+            font-weight: bold;  
+        }
+        .results { 
+            background: rgb(230, 120, 120); 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-top: 20px; 
+        }
+        .result-item { 
+            margin: 10px 0; 
+            font-size: 1.1em; 
+        }
+        fieldset { 
+            border: 1px solid rgb(230, 120, 120); 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin: 20px 0; 
+        }
+        legend { 
+            font-weight: bold; 
+            padding: 0 5px; 
+        }
+        input[type="radio"] { 
+            margin-right: 8px; 
+        }
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    margin: 10px;
+    background-color: rgba(227, 163, 163, 0.649);
+    text-align: center;
+}
+.img-caption {
+    text-align: left;
+    margin: 8px;
+    font-style: italic;
+    font-size: 0.5rem;
+    color: #333;
+}
+.img-text-center {
+    text-align: center;
+    margin-top: 5px;
+    font-style: normal;
+    font-size: 1rem;
+    color: #000000;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration:none; 
+    color: rgb(0, 0, 0); 
+    font-size: 1rem;
+}
+a:hover{
+    color: rgb(92, 8, 51);
+}
+.navbar{
+    width: 100% !important;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 15px; 
+}
+.navbar .logo{
+    flex: 1;
+    min-width: 0;
+}
+.navbar .links,
+.navbar .action_btn {
+    display: none !important;
+}
+.navbar .toggle_btn {
+    display: block !important;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+    font-size: 2rem;
+    cursor: pointer;
+    order: 2.2;
+    flex-shrink: 0;
+    padding: 10px;
+    margin-left: 10px;
+}
+.navbar .toggle_btn:hover i {
+    color: rgb(92, 8, 51) !important;
+}
+.action_btn{
+    background-color:rgb(228, 183, 183);
+    color:rgb(0, 0, 0);
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition:0.2s ease;
+}
+.action_btn:hover{
+    scale: 1.5; 
+    color: rgb(255, 255, 255);
+}
+.action_btn:active{
+    transform: scale(0.95);
+}
+.dropdown_menu{
+    display: block !important;
+    position: absolute;
+    top: 75px; 
+    right: 1rem;
+    height: 0;
+    width: min(90vw, 300px); 
+    background: rgb(230, 120, 120);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    top: 85px;
+}
+.dropdown_menu.open{
+    height: 550px;
+}
+.dropdown_menu li{
+    padding: 0.8rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+.dropdown_menu .action_btn{
+    width: 100%; 
+    display: flex; 
+    justify-content: center;
+}
+section#hero{
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+#hero h1{
+    font-size: clamp(2rem, 5vw, 3rem); 
+    margin-bottom: 1rem;
+}
+.logo img { 
+    height: 80px;
+    width: auto;
+    display: block;
+}
+.logo a {
+    display: block;
+    line-height: 0;
+    text-decoration: none;
+}
+.container {
+    position: relative;  
+}
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    display: block;
+}
+.container .btn1 {
+    position: absolute;
+    top: 64%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn2 {
+    position: absolute;
+    top: 66%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn3 {
+    position: absolute;
+    top: 40%;
+    left: 38.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color:rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn4 {
+    position: absolute;
+    top: 39%;
+    left: 51.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color:rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn5 {
+    position: absolute;
+    top: 38%;
+    left: 64%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn6 {
+    position: absolute;
+    top: 72%;
+    left: 68%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color:rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn7 {
+    position: absolute;
+    top: 46%;
+    left: 44.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color:rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn8 {
+    position: absolute;
+    top: 64%;
+    left: 23.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn9 {
+    position: absolute;
+    top: 61%;
+    left: 70.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn10 {
+    position: absolute;
+    top: 53%;
+    left: 64%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn11 {
+    position: absolute;
+    top: 45%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn12 {
+    position: absolute;
+    top: 29%;
+    left: 44.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+    
+}
+.container .btn13 {
+    position: absolute;
+    top: 66%;
+    left: 44.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+.container .btn14 {
+    position: absolute;
+    top: 45%;
+    left: 29.75%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+    width: 15px;
+    height: 15px;
+}
+
+    </style>
+</head>
+<h1>Toxic substances in e-cigarettes</h1>
+<br>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#"><img src="logo_rose.png" alt="Prévention Tabac"></a></div> 
+            <ul class="links">
+            <li><a href="pr prix cig.html">Financial impact</a></li>
+            <li><a href="pr. imp ecologique.html">Environmental impact</a></li>
+            <li><a href="c humain picture.html">Health impact</a></li>
+            <li><a href="temps perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque AVC.html">Stroke</a></li>
+            <li><a href="rissque IHD.html">IHD</a></li>
+            <li><a href="risk infarctus du myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig él.html">Toxic substances in e-cigarettes</a></li>
+            
+            </ul> 
+            <a href="écriture fumée.html" class="action_btn">Back to home page</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-heart-crack"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="pr prix cig.html">Financial impact</a></li>
+            <li><a href="pr. imp ecologique.html">Environmental impact</a></li>
+            <li><a href="c humain picture.html">Health impact</a></li>
+            <li><a href="temps perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque AVC.html">Stroke</a></li>
+            <li><a href="rissque IHD.html">IHD</a></li>
+            <li><a href="risk infarctus du myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig él.html">Toxic substances in e-cigarettes</a></li>
+             <li><a href="écriture fumée.html" class="action_btn">Back to home page</a></li>
+        </div>
+    </header>
+<div class="container">
+    
+  <img src="vape.png" alt="Snow">
+    <p class="img-caption">
+    designed by Freepik
+  </p>
+  <p class="img-text-center">
+    NB: Some substances, especially aromas, are not present in all e-cigarettes.
+  </p>
+  <button onclick="alert('NICOTINE : Nicotine is a highly addictive chemical. It is a drug that causes smokers to become dependent on cigarettes, both physically and psychologically. It stimulates the release of dopamine and other neurotransmitters, resulting in increased stimulation, perception and memory, as well as decreased appetite. Long-term nicotine use can cause a variety of health problems, including poor blood circulation, heart problems, and digestive issues. Smoking during pregnancy also puts babies at risk of developing serious health problems during and after pregnancy. Nicotine can impair teenagers\' memory and concentration, alter their brain development, and reduce their ability to control their impulses.')" class="btn1">&nbsp;&nbsp;&nbsp;&nbsp; </button>
+  <button onclick="alert('ETHANOL : The consequences of ethanol vaporizing in e-liquids are not fully understood yet, but scientists presume it has harmful effects on human health. ')" class="btn2">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('GLYCEROL : Glycerol is one of the main components of e-liquids. When heated, it can generate harmful substances such as acrolein, acetaldehyde and formaldehyde and irritate the respiratory tract. ')" class="btn3">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('PROPYLENE GLYCOL : Propylene glycol is one of the main components of e-liquids. When heated, it can produce dangerous substances such as acrolein, acetaldehyde and formaldehyde. It can also cause irritation to the eyes and throat. ')" class="btn4">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('ALDEHYDE CINNAMIQUE : This aroma gives a cinnamon taste. It may impair the functioning of cilia, increasing the risk of respiratory tract infection. Its toxic effects on cells have been demonstrated. ')"class="btn5">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('ACROLEIN : Acrolein is a colourless or yellow liquid found in e-liquids which can consequently be present in e-cigarette vapour. Breathing in air containing high concentrations of acrolein can irritate the nose, throat, and respiratory tract. It can also irritate the eyes.')"class="btn6">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('ETHYL BUTYRATE : It is an aroma that imparts a fruity taste. It may irritate the respiratory tract and have a pro-inflammatory effect. There are also indications of mucous membrane irritation. However, scientific data is very limited at this stage. ')"class="btn7">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+<button onclick="alert('DIACETYL : Diacetyl is a yellow liquid with an intensely buttery flavor. When inhaled, it causes bronchiolitis obliterans, also known as \'popcorn lung\'. This is a condition where the tiny air sacs in the lungs become scarred, resulting in the airways thickening and narrowing. This serious lung disease causes coughing, wheezing and shortness of breath. While it can be treated, it cannot be cured. Continued exposure to the toxin can worsen scar tissue and eventually impair the body’s ability to absorb oxygen, resulting in respiratory failure.')"class="btn8">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+<button onclick="alert('CADMIUM : Cadmium is a heavy and toxic metal. It can cause lung cancer, kidney damage, bone fragility, an increased risk of fractures, respiratory diseases, reproductive disorders, and a general increased risk of cancer. ')"class="btn9">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+<button onclick="alert('FURANEOL : Furaneol is an aroma with a juicy, caramelised, grilled taste. The health effects of vapourisation have not yet been sufficiently studied, but there are concerns as it can degrade into diacetyl and acetyl propionyl. It is also toxic to cells. ')"class="btn10">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+<button onclick="alert('LINALOOL : Linalool is an aroma with a citrus fruit taste. It can irritate the respiratory tract and may be cytotoxic. ')"class="btn11">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+<button onclick="alert('BENZENE : Benzene is a potentially carcinogenic substance that has been linked to various diseases, including leukaemia and bone marrow failure.')"class="btn12">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+<button onclick="alert('MALTOL AND ETHYL MALTOL : These substances give a sweet, fruity, caramelised taste reminiscent of candyfloss. There is some evidence that they may be cytotoxic, and they may also irritate the respiratory tract. Ethyl maltol is less toxic than maltol; tests on rats have shown maltol to cause growth inhibition and kidney damage. ')"class="btn13">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+<button onclick="alert('VANILLIN AND ETHYL VANILLIN : The health effects of inhaling vanillin are controversial. At high concentrations, they may potentially have harmful effects on lung cells. Furthermore, vanillin and its carriers (propylene glycol and glycerine) may react with each other to form new compounds that have different properties, such as a higher potential to cause irritation. ')"class="btn14">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+</div>
+ <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function() {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-heart-crack';
+        }
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>Relative risk of dying from an ischemic heart disease (IHD)-  Tobacco prevention</title>
+    
+    <style>
+        header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            background-color: rgb(230, 120, 120) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+           details {
+        border: 1px solid rgb(230, 120, 120);
+        border-radius: 12px;
+        margin-bottom: 20px;       
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
+    }
+summary {
+        padding: 25px 30px;         
+        background: rgb(230, 120, 120);       
+        color: white;              
+        cursor: pointer;          
+        font-weight: 500;           
+        font-size: 17px;            
+        line-height: 1.4;          
+        transition: all 0.3s ease;  
+        list-style: none;          
+        font-family: Calibri, sans-serif;  
+    }
+        summary:hover {
+        background: rgb(230, 120, 120);        
+        padding: 28px 32px;         
+    }
+        summary::-webkit-details-marker {
+        display: none;              
+    }
+    summary::-moz-list-bullet {
+        list-style-type: none;     
+    }
+    .contenu {
+        padding: 30px;              
+        background:rgb(228, 183, 183);        
+        line-height: 2.2;          
+        font-size: 16px;           
+        font-family: Calibri, sans-serif;  
+    }
+       .lien {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .lien:hover {
+        text-decoration: underline;
+    }
+          body { 
+        font-family: Calibri, sans-serif !important; 
+        max-width: 600px; 
+        margin: 100px auto 50px auto !important;
+        padding-top: 40px !important;
+          }
+         h2 {
+        margin-bottom: 20px !important;
+    }
+    p{
+        margin-top: 10px !important;
+    }
+     p + label {
+        margin-top: 40px !important;
+     }
+        label { 
+            font-weight: bold; 
+            display: block; 
+            margin: 15px 0 5px; 
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+        input[type="range"] { 
+            width: 300px; 
+        }
+        .value-display { 
+            font-size: 1.2em; 
+            font-weight: bold;  
+        }
+        .results { 
+            background: rgb(230, 120, 120); 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-top: 20px; 
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+            line-height: 1.2;
+        }
+        .results .result-item {
+            text-shadow: 2px 4px 6px rgba(0,0,0,0.1);
+        }
+        .results h3 {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            text-shadow: 2px 4px 6px rgba(0,0,0,0.1);
+        }
+        .result-item { 
+            margin: 10px 0; 
+            font-size: 1.1em; 
+        }
+
+        fieldset { 
+            border: 1px solid rgb(230, 120, 120); 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin: 20px 0; 
+        }
+        legend { 
+            font-weight: bold; 
+            padding: 0 5px; 
+        }
+        input[type="radio"] { 
+            margin-right: 8px; 
+            accent-color: rgb(230, 120, 120);
+        }
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    margin: 10px;
+    background-color:rgb(228, 183, 183);
+    text-align: center;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration:none; 
+    color: rgb(0, 0, 0); 
+    font-size: 1rem;
+}
+a:hover{
+    color: rgb(92, 8, 51);
+}
+.navbar{
+    width: 100% !important;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 15px; 
+}
+.navbar .logo{
+    flex: 1;
+    min-width: 0;
+}
+.navbar .links,
+.navbar .action_btn {
+    display: none !important;
+}
+.navbar .toggle_btn {
+    display: block !important;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+    font-size: 2rem;
+    cursor: pointer;
+    order: 2.2;
+    flex-shrink: 0;
+    padding: 10px;
+    margin-left: 10px;
+}
+.navbar .toggle_btn:hover i {
+    color: rgb(92, 8, 51) !important;
+}
+.action_btn{
+    background-color:rgb(228, 183, 183);
+    color:rgb(0, 0, 0);
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition:0.2s ease;
+}
+.action_btn:hover{
+    scale: 1.5; 
+    color: rgb(255, 255, 255);
+}
+.action_btn:active{
+    transform: scale(0.95);
+}
+.dropdown_menu{
+    display: block !important;
+    position: absolute;
+    top: 75px; 
+    right: 1rem;
+    height: 0;
+    width: min(90vw, 300px); 
+    background: rgb(230, 120, 120);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    top: 85px;
+}
+.dropdown_menu.open{
+    height: 550px;
+}
+.dropdown_menu li{
+    padding: 0.8rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+.dropdown_menu .action_btn{
+    width: 100%; 
+    display: flex; 
+    justify-content: center;
+}
+section#hero{
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+    h2 {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #010101, #a17272);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));  
+    }
+#hero h1{
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+}
+.logo img { 
+    height: 80px;
+    width: auto;
+    display: block;
+}
+.logo a {
+    display: block;
+    line-height: 0;
+    text-decoration: none;
+}
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#"><img src="logo_rose.png" alt="Prévention Tabac"></a></div> 
+       <ul class="links">
+            <li><a href="pr prix cig.html">Financial impact</a></li>
+            <li><a href="pr. imp ecologique.html">Environmental impact</a></li>
+            <li><a href="c humain picture.html">Health impact</a></li>
+            <li><a href="temps perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque AVC.html">Stroke</a></li>
+            <li><a href="rissque IHD.html">IHD</a></li>
+            <li><a href="risk infarctus du myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig él.html">Toxic substances in e-cigarettes</a></li>
+            
+        </ul> 
+            <a href="écriture fumée.html" class="action_btn">Back to home page </a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-heart-crack"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="pr prix cig.html">Financial impact</a></li>
+            <li><a href="pr. imp ecologique.html">Environmental impact</a></li>
+            <li><a href="c humain picture.html">Health impact</a></li>
+            <li><a href="temps perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque AVC.html">Stroke</a></li>
+            <li><a href="rissque IHD.html">IHD</a></li>
+            <li><a href="risk infarctus du myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig él.html">Toxic substances in e-cigarettes</a></li>
+            <li><a href="écriture fumée.html" class="action_btn">Back to home page</a></li>
+        </div>
+    </header>
+
+    <h2>Relative risk of dying from an ischemic heart disease (IHD)</h2>   
+    <div class="contenu">
+
+    <details>
+        <summary>What is IHD ?</summary>
+        <div class="contenu">
+            <p>Ischemic heart disease refers to the weakening of the heart caused by decreased blood flow. This decrease in blood flow is generally the result of coronary artery disease, a condition that can be linked to smoking. This occurs when the coronary arteries narrow.
+            As the heart weakens, it has to work harder to pump blood around the body. This can increase the risk of blood clots, heart failure, cardiac arrhythmia, and other issues. Consequently, ischemic heart disease is responsible for many deaths worldwide. It is considered the leading cause of death globally!</p>
+        </div>
+    </details>
+
+    <p>Select values to see the relative risks of dying from a IHD !</p>
+
+    <fieldset>
+        <legend>What is your gender?</legend>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="femme" name="sexe" value="femme" checked> Woman
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="homme" name="sexe" value="homme"> Man
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="autre" name="sexe" value="autre"> Other
+        </label>
+    </fieldset>
+
+      <fieldset>
+        <legend> Select the number of cigarettes smoked per day!</legend>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="1 à 4 cigarettes" name="n_cig" value="1 à 4 cigarettes" checked>1 to 4 cigarettes
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="5 à 9 cigarettes" name="n_cig" value="5 à 9 cigarettes"> 5 to 9 cigarettes
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="10 à 14 cigarettes" name="n_cig" value="10 à 14 cigarettes"> 10 to 14 cigarettes
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="15 à 19 cigarettes" name="n_cig" value="15 à 19 cigarettes"> 15 to 19 cigarettes
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="20 à 24 cigarettes" name="n_cig" value="20 à 24 cigarettes"> 20 to 24 cigarettes
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="25 cigarettes ou plus" name="n_cig" value="25 cigarettes ou plus"> 25 or more cigarettes
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>Select an age !</legend>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="30 to 44 years old" name="age" value="30 to 44 years old" checked> 30 to 44 years old
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="45 to 59 years old" name="age" value="45 to 59 years old"> 45 to 59 years old
+        </label>
+        <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="60 to 69 years old" name="age" value="60 to 69 years old"> 60 to 69 years old
+        </label>
+         <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="70 to 79 years old" name="age" value="70 to 79 years old"> 70 to 79 years old
+        </label>
+         <label style="display: block; margin: 10px 0; cursor: pointer;">
+            <input type="radio" id="80 years old and over" name="age" value="80 years old and over"> 80 years old and over
+        </label>
+    </fieldset>
+
+    
+    <div class="results">
+        <h3>Relative risk of a smoker dying from IHD :</h3>
+        <div style="height: 11px;"></div>
+        <div class="result-item" style="color:rgb(255, 216, 216); font-size: 1.2em;">
+            <div style="height: 9px;"></div>
+            <span id="risque"></span> 
+            <div style="height: 11px;"></div>
+        </div>
+         <img src="Pict_BlackHeart.jpeg" alt="Texte descriptif de l'image" style="width:200.5px; height: 278px;">
+    </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function() {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-heart-crack';
+        }
+
+        function calculerImpact() {
+    let risque = 0;
+
+
+    const age = document.querySelector('input[name="age"]:checked');
+    const n_cig = document.querySelector('input[name="n_cig"]:checked');
+    const sexe = document.querySelector('input[name="sexe"]:checked');
+
+    if (!sexe || !age || !n_cig) return; 
+
+    if (sexe.value === "femme") {
+        if (age.value === "30 to 44 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.1;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1.3;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.4;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 2;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 1.6;
+            else risque = 1.3;
+        }
+        else if (age.value === "45 to 59 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 2.9;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 3.5;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 3.8;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 5.3;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 4.3;
+            else risque = 3.5;
+        }
+        else if (age.value === "60 to 69 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.9;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 2.3;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 2.5;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 3.5;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 2.8;
+            else risque = 2.1;
+        }
+        else if (age.value === "70 to 79 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.3;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1.6;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.7;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 2.4;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 1.9;
+            else risque = 1.6;
+        }
+        else if (age.value === "80 years old and over") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.1;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1.3;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.4;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 2;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 1.6;
+            else risque = 1.3;
+        }
+    }
+else if (sexe.value === "homme") {
+        if (age.value === "30 to 44 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.1;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 1.3;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 1.3;
+            else risque = 1.3;
+        }
+        else if (age.value === "45 to 59 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 2.6;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 2.5;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 3;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 3.7;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 3.8;
+            else risque = 3.6;
+        }
+        else if (age.value === "60 to 69 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.7;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1.5;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.9;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 2.3;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 2.3;
+            else risque = 2.2;
+        }
+        else if (age.value === "70 to 79 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.2;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1.1;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.4;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 1.7;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 1.7;
+            else risque = 1.6;
+        }
+        else if (age.value === "80 years old and over") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.1;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 1.3;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 1.3;
+            else risque = 1.3;
+        }
+    }
+else if (sexe.value === "autre") {
+        if (age.value === "30 to 44 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.1;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1.2;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.3;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 1.7;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 1.5;
+            else risque = 1.3;
+        }
+        else if (age.value === "45 to 59 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 2.8;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 3;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 3.4;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 4.5;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 4.1;
+            else risque = 3.6;
+        }
+        else if (age.value === "60 to 69 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.8;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1.9;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 2.2;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 2.9;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 2.6;
+            else risque = 2.2;
+        }
+        else if (age.value === "70 to 79 years old") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.3;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1.4;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.6;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 2.1;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 1.8;
+            else risque = 1.6;
+        }
+        else if (age.value === "80 years old and over") {
+            if (n_cig.value === "1 à 4 cigarettes") risque = 1.1;
+            else if (n_cig.value === "5 à 9 cigarettes") risque = 1.2;
+            else if (n_cig.value === "10 à 14 cigarettes") risque = 1.3;
+            else if (n_cig.value === "15 à 19 cigarettes") risque = 1.7;
+            else if (n_cig.value === "20 à 24 cigarettes") risque = 1.5;
+            else risque = 1.3;
+        }
+    }
+        
+       
+
+    document.getElementById('risque').textContent = risque.toFixed(1);
+
+}
+
+          
+    
+        
+        window.onload = calculerImpact;
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.addEventListener('change', calculerImpact);
+});
+    </script>
+</body>
+</html>

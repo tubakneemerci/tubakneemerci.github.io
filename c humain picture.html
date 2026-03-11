@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <title>health impact - Tobacco prevention</title>
+    
+    <style>
+        header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            background-color: rgb(244, 198, 146);
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+    h1{
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #010101, #aa7d4a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));  
+    }
+          body { 
+        font-family: Calibri, sans-serif !important; 
+        max-width: 600px; 
+        margin: 100px auto 50px auto !important;
+        padding-top: 40px !important;
+          }
+         h2 {
+        margin-bottom: 20px !important;
+    }
+    p{
+        margin-top: 10px !important;
+    }
+    p1{
+        margin-top: 10px;
+        font-style: italic;
+        font-size: 12px;
+    }
+    
+     p + label {
+        margin-top: 40px !important;
+     }
+        label { 
+            font-weight: bold; 
+            display: block; 
+            margin: 15px 0 5px; 
+        }
+        .result-item { 
+            margin: 10px 0; 
+            font-size: 1.1em; 
+        }
+        fieldset { 
+            border: 1px solid rgb(192, 129, 34); 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin: 20px 0; 
+        }
+        legend { 
+            font-weight: bold; 
+            padding: 0 5px; 
+        }
+        input[type="radio"] { 
+            margin-right: 8px; 
+        }
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    margin: 10px;
+    background-color: white;
+    text-align: center;
+}
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration:none; 
+    color: rgb(0, 0, 0); 
+    font-size: 1rem;
+}
+a:hover{
+    color: rgb(92, 8, 51);
+}
+
+.navbar{
+    width: 100% !important;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 15px; 
+}
+.navbar .logo{
+    flex: 1;
+    min-width: 0;
+}
+.navbar .links,
+.navbar .action_btn {
+    display: none !important;
+}
+.navbar .toggle_btn {
+    display: block !important;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+    font-size: 2rem;
+    cursor: pointer;
+    order: 2.2;
+    flex-shrink: 0;
+    padding: 10px;
+    margin-left: 10px;
+}
+.navbar .toggle_btn:hover i {
+    color: rgb(92, 8, 51) !important;
+}
+.action_btn{
+    background-color:rgb(241, 174, 98);
+    color:rgb(0, 0, 0);
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition:0.2s ease;
+}
+.action_btn:hover{
+    scale: 1.5; color: rgb(255, 255, 255);
+}
+.action_btn:active{
+    transform: scale(0.95);
+}
+.dropdown_menu{
+    display: block !important;
+    position: absolute;
+    top: 75px; 
+    right: 1rem;
+    height: 0;
+    width: min(90vw, 300px); 
+    background:rgb(244, 198, 146);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    top: 85px;
+}
+.dropdown_menu.open{
+    height: 550px;
+}
+.dropdown_menu li{
+    padding: 0.8rem;
+    display: flex; 
+    align-items: 
+    center; 
+    justify-content: center;
+}
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+}
+section#hero{
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+#hero h1{
+    font-size: clamp(2rem, 5vw, 3rem); 
+    margin-bottom: 1rem;
+}
+.logo img { 
+    height: 80px;
+    width: auto;
+    display: block;
+}
+.logo a {
+    display: block;
+    line-height: 0;
+    text-decoration: none;
+}
+.container {
+    position: relative;  
+}
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    display: block;
+}
+.container .btn1 {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+}
+.container .btn2 {
+    position: absolute;
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+}
+.container .btn3 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color:rgb(229, 191, 108);
+    border-width: medium;
+}
+.container .btn4 {
+    position: absolute;
+    top: 68%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color:rgb(229, 191, 108);
+    border-width: medium;
+}
+.container .btn5 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+}
+.container .btn6 {
+    position: absolute;
+    top: 26%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color:rgb(229, 191, 108);
+    border-width: medium;
+}
+.container .btn7 {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color:rgb(229, 191, 108);
+    border-width: medium;
+}
+.container .btn8 {
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;  
+    background-color: rgb(229, 191, 108);
+    border-width: medium;
+}
+ details {
+        border: 1px solid rgb(244, 198, 146);
+        border-radius: 12px;
+        margin-bottom: 20px;       
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
+    }
+summary {
+        padding: 25px 30px;         
+        background:rgb(244, 198, 146);       
+        color: black;              
+        cursor: pointer;          
+        font-weight: 500;           
+        font-size: 17px;            
+        line-height: 1.4;          
+        transition: all 0.3s ease;  
+        list-style: none;          
+        font-family: Calibri, sans-serif;  
+    }
+        summary:hover {
+        background: rgb(244, 198, 146);        
+        padding: 28px 32px;         
+    }
+        summary::-webkit-details-marker {
+        display: none;              
+    }
+    summary::-moz-list-bullet {
+        list-style-type: none;     
+    }
+    .contenu {
+        padding: 30px;              
+        background:rgba(244, 198, 146, 0.547);        
+        line-height: 2.2;          
+        font-size: 16px;           
+        font-family: Calibri, sans-serif;  
+    }
+     
+    </style>
+</head>
+<h1>Health risks associated with tobacco smoking</h1>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#"><img src="logo_neutral.png" alt="Prévention Tabac"></a></div> 
+            <ul class="links">
+                            <li><a href="pr prix cig.html">Financial impact</a></li>
+            <li><a href="pr. imp ecologique.html">Environmental impact</a></li>
+            <li><a href="c humain picture.html">Health impact</a></li>
+            <li><a href="temps perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque AVC.html">Stroke</a></li>
+            <li><a href="rissque IHD.html">IHD</a></li>
+            <li><a href="risk infarctus du myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig él.html">Toxic substances in e-cigarettes</a></li>
+            
+            </ul> 
+            <a href="écriture fumée.html" class="action_btn">Back to home page</a>
+            <div class="toggle_btn">
+             <i class="fa-solid fa-child-reaching"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+
+            <li><a href="pr prix cig.html">Financial impact</a></li>
+            <li><a href="pr. imp ecologique.html">Environmental impact</a></li>
+            <li><a href="c humain picture.html">Health impact</a></li>
+            <li><a href="temps perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque AVC.html">Stroke</a></li>
+            <li><a href="rissque IHD.html">IHD</a></li>
+            <li><a href="risk infarctus du myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig él.html">Toxic substances in e-cigarettes</a></li>
+             <li><a href="écriture fumée.html" class="action_btn">Back to home page</a></li>
+        </div>
+    </header>
+<div class="container">
+    
+  <img src="photo CH1.png" alt="Snow">
+  <button onclick="alert('BRAIN : Dependence, stroke [1]')" class="btn2">&nbsp;&nbsp;&nbsp;&nbsp; </button>
+  <button onclick="alert('EYES : Blindness, cataracts [2], age-related macular degeneration (AMD)[3]')" class="btn7">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('TEETH AND PERIODONTIUM : Periodontal disease [4], caries, failure of dental implants')" class="btn8">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('RESPIRATORY TRACT : Acute respiratory diseases (e.g. pneumonia [5]), chronic obstructive pulmonary disease (COPD) [6], tuberculosis [7], asthma, lung cancer')" class="btn1">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('CARDIOVASCULAR SYSTEM : Coronary heart disease (e.g. heart attack), atherosclerosis [8], peripheral artery disease [9], abdominal aortic aneurysm [10]')"class="btn6">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('STOMACH AND INTESTINES : Peptic ulcer disease [11], inflammatory bowel disease [12]')"class="btn3">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('REPRODUCTION : Erectile dysfunction, reduced fertility, pregnancy complications, harms the unborn child')"class="btn5">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button onclick="alert('BONES AND JOINTS: Rheumatoid arthritis [13], reduced bone strength in postmenopausal women, hip fractures')"class="btn4">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+</div>
+<details>
+    <summary>Click here for further information on the diseases mentioned above !</summary>
+    <div class="contenu">
+        <p>
+
+    <details>
+        <summary> [1] What is a stroke ?</summary>
+        <div class="contenu">
+            <p>A stroke is a medical emergency that occurs when the brain does not receive enough blood. This can be caused by a blocked blood vessel or a brain haemorrhage. Strokes are life-threatening and can be fatal.</p>
+            <img src="Pict_Stroke.png" alt="Texte descriptif de l'image" style="width: 260px; height: 360px;">
+            <br>
+            <p1>Illustration of an embolic stroke, which occurs when a blood clot travels to and blocks a brain artery</p>
+        </div>
+  
+    </details>
+
+     <details>
+        <summary>[2] What is a cataract ?</summary>
+        <div class="contenu">
+            <p>A cataract is a clouding of the normally clear lens. For people with cataracts, seeing through a cloudy lens is comparable to looking through frosted or fogged glass. The resulting blurred vision can make it difficult to read or drive at night. Most cataracts develop gradually and do not affect vision at first, but over time they eventually start to impact sight.</p>
+            <br>
+            <img src="Pict_Cataract.png" alt="Texte descriptif de l'image" style="width: 260px; height: 200px;">
+            <br>
+            <p1>An enlarged view of a cataract, as observed during an examination using a lamp</p1>
+        </div>
+    </details>
+     <details>
+        <summary>[3] What is AMD ?</summary>
+        <div class="contenu">
+            <p>Age-related macular degeneration (AMD) is a chronic disease that leads to the irreversible destruction of the macula, which is located at the centre of the retina. It causes progressive loss of central vision, resulting in blindness and visual impairment.</p>
+            <br>
+            <img src="Pict_AMDSchemEYE.png" alt="Texte descriptif de l'image" style="width: 350px; height: 350px;">
+            <br>
+            <p1>Labelled structures of a healthy eye</p1>
+            
+        </div>
+    </details>
+   <details>
+        <summary>[4] What is the periodontium ?</summary>
+        <div class="contenu">
+            <p>The periodontium refers to the set of tissues that surround and support the teeth.</p>
+             <img src="peridontium.png" alt="Texte descriptif de l'image" style="width: 370px; height:380px">
+        </div>
+    </details> <details>
+        <summary>[5] What is pneumonia ?</summary>
+        <div class="contenu">
+            <p>Pneumonia is an infection that causes the air sacs in one or both lungs to become inflamed. This can result in the air sacs filling with fluid or pus, leading to symptoms such as a cough producing phlegm (thick, sticky mucus produced in the lungs and lower respiratory tract) or pus, fever, chills and breathing difficulties. Pneumonia can be caused by various organisms, including bacteria, viruses and fungi. Pneumonia can range from mild to life-threatening. It is particularly serious in infants and young children, people over 65, and those with underlying health conditions or weakened immune systems.</p>
+
+        </div>
+    </details> <details>
+        <summary>[6] What is a COPD ?</summary>
+        <div class="contenu">
+            <p>Chronic obstructive pulmonary disease (COPD) is a long-term lung condition caused by lung damage. This damage leads to inflammation and swelling inside the airways, which restricts the flow of air in and out of the lungs. This restriction in airflow is known as obstruction. Symptoms include difficulty breathing, a daily cough with mucus and wheezing in the lungs.</p>
+            <img src="COPD.png" alt="Texte descriptif de l'image" style="width: 260px; height:260px">
+        </div>
+    </details> <details>
+        <summary>[7] What is a tuberculosis ?</summary>
+        <div class="contenu">
+            <p>Tuberculosis is a serious disease that primarily affects the lungs. The germs that cause it are a type of bacterium. The disease can spread when an infected person coughs, sneezes or sings. This sprays tiny droplets containing the bacteria into the air. Another person can then inhale these droplets and the bacteria enter their lungs. Tuberculosis spreads easily in places where people gather in crowds or live in overcrowded conditions. People with weakened immune systems, which can result from smoking, are at a higher risk of contracting tuberculosis than those with normal immune systems.</p>
+
+        </div>
+    </details> <details>
+        <summary>[8] What is atherosclerosis ?</summary>
+        <div class="contenu">
+            <p>Atherosclerosis is the build-up of fat, cholesterol and other substances on and in the walls of arteries. This build-up is known as plaque. This can cause the arteries to narrow and block blood flow. It can also rupture, leading to the formation of a blood clot. Although atherosclerosis is often considered to be a heart disease, it can affect arteries anywhere in the body.</p>
+            <br>
+            <img src="Pict_Atherosclerosis.png" alt="Texte descriptif de l'image" style="width: 380px; height:260px">
+            <br>
+            <p1>Illustration depicting atherosclerosis in a coronary artery</p1>
+        </div>
+    </details> <details>
+        <summary>[9] What is peripheral artery disease ?</summary>
+        <div class="contenu">
+            <p>Peripheral artery disease (PAD) is a condition in which the arteries narrow, consequently reducing blood flow to the arms or legs. The legs or arms -usually the legs- do not receive enough blood flow to keep up with demand. This can cause leg pain when walking, leg numbness or weakness, muscle pain or cramping in the arms or legs, etc.</p>
+
+        </div>
+    </details> <details>
+        <summary>[10] What is an abdominal aortic aneurysm ?</summary>
+        <div class="contenu">
+            <p>An abdominal aortic aneurysm is an enlargement of the lower part of the body's main artery, the aorta. The aorta runs from the heart through the centre of the chest and abdomen. If an abdominal aortic aneurysm ruptures, it can cause life-threatening bleeding.</p>
+
+        </div>
+    </details> <details>
+        <summary>[11] What is peptic ulcer disease ?</summary>
+        <div class="contenu">
+            <p>Peptic ulcer disease (PUD) is a condition that causes open sores called ulcers in the lining of the digestive tract. In the stomach, pepsin and stomach acid help break down food for digestion; these substances are highly corrosive. Normally, a strong lining protects the digestive tract from these substances. However, in PUD, this protection breaks down. Pepsin and acid then destroy the lining, forming ulcers. Most ulcers form in the stomach or duodenum, where these substances are most active, but they can also occur elsewhere. Peptic ulcer disease causes pain in the upper abdomen and indigestion.</p>
+            <br>
+            <img src="Pict_PUD.png" alt="Texte descriptif de l'image" style="width: 440px; height:260px">
+            <br>
+            <p1>Illustration depicting peptic ulcer disease</p1>
+
+        </div>
+    </details> <details>
+        <summary>[12] What is inflammatory bowel disease ?</summary>
+        <div class="contenu">
+            <p>Inflammatory bowel disease (IBD) refers to a group of conditions. These conditions cause swelling and inflammation of the tissues of the digestive tract. 
+The most common types of IBD are: 
+Ulcerative colitis. This condition is characterised by inflammation and ulcers along the lining of the colon and rectum.
+Crohn's disease. In this type of IBD, the lining of the digestive tract becomes inflamed. It often affects the deeper layers of the digestive tract. Crohn's disease most commonly affects the small intestine. However, it can also affect the large intestine and, less commonly, the upper gastrointestinal tract.
+Symptoms of ulcerative colitis and Crohn's disease typically include abdominal pain, diarrhoea, rectal bleeding, extreme fatigue, and weight loss.
+For some people, IBD is only a mild illness. For others, however, it is a disabling condition that can lead to life-threatening complications.
+</p>
+</p>
+
+        </div>
+    </details> <details>
+        <summary>[13] What is rheumatoid arthritis ?</summary>
+        <div class="contenu">
+            <p>Rheumatoid arthritis is a chronic condition that causes inflammation, pain and swelling in the joints. However, it can also affect other parts of the body, including the skin, eyes, lungs, heart, and blood vessels. It is an autoimmune disorder, which occurs when the immune system mistakenly attacks the body's own tissues.</p>
+        </div>
+    </details>
+ <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function() {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-sharp fa-solid fa-child-reaching';
+        }
+</script>
+</body>
+</html>
