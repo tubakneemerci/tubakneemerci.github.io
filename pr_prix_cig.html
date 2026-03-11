@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="Barre_a_outils_CSS_Prevention_tabac.css" />
+    <title>Financial impact of tobacco</title>
+<style>
+       header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 1000 !important;
+        background-color: rgb(192, 129, 34) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    body { 
+        font-family: Calibri, sans-serif !important; 
+        max-width: 600px; 
+        margin: 100px auto 50px auto !important;
+        padding-top: 40px !important;
+    }
+    h2 {
+        font-size: 2em;
+        margin-bottom: 20px !important;
+    }
+    p {
+        margin-top: 10px !important;
+    }
+    p + label {
+        margin-top: 30px !important;
+    }
+    label { 
+        font-weight: bold; 
+        display: block; 
+        margin: 15px 0 5px; 
+        filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+    }
+    input[type="range"] { 
+        width: 300px; 
+    }
+    .value-display { 
+        font-size: 1.2em; 
+        font-weight: bold; 
+        color: rgb(141, 95, 32); 
+    }
+    .results { 
+        background: rgb(226, 169, 90); 
+        padding: 30px;
+        border-radius: 10px; 
+        margin-top: 20px; 
+        line-height: 1.2;
+        filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+    }
+    .results .result-item {
+            text-shadow: 2px 4px 6px rgba(0,0,0,0.1);
+    }
+    .results h3 {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            text-shadow: 2px 4px 6px rgba(0,0,0,0.1);
+        }
+    .result-item { 
+        margin: 25px 0;
+        font-size: 1.1em; 
+        color: black; 
+        font-family: Calibri, sans-serif;
+    }
+    .highlight {
+        color: rgb(141, 95, 32);
+        font-weight: normal;
+        font-size: 1.1em;
+    }
+    .results h3 {
+        font-size: 1.4em;
+        font-weight: bolder;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .impact-titre {
+        font-size: 1.3em;
+        font-weight: bolder;
+        color: rgb(141, 95, 32);
+        text-align: center;
+    }
+    .valeur {
+        font-weight: bold; 
+    }
+    
+</style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#"><img src="LogoNavbar.png" alt="Prévention Tabac"></a></div> 
+            <ul class="links">
+            <li><a href="pr_prix_cig.html">Financial impact</a></li>
+            <li><a href="pr._imp_ecologique.html">Environmental impact</a></li>
+            <li><a href="c_humain_picture.html">Health impact</a></li>
+            <li><a href="temps_perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque_AVC.html">Stroke</a></li>
+            <li><a href="rissque_IHD.html">IHD</a></li>
+            <li><a href="risk_infarctus_du_myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture_cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig_el.html">Toxic substances in e-cigarettes</a></li>
+            
+            </ul> 
+            <a href="index.html" class="action_btn">Back to home page</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-ban-smoking"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="pr_prix_cig.html">Financial impact</a></li>
+            <li><a href="pr._imp_ecologique.html">Environmental impact</a></li>
+            <li><a href="c_humain_picture.html">Health impact</a></li>
+            <li><a href="temps_perdu.html">Life expectancy</a></li>
+            <li><a href="cancers.html">Cancer</a></li>
+            <li><a href="risque.html">Lung cancer</a></li>
+            <li><a href="risque_AVC.html">Stroke</a></li>
+            <li><a href="rissque_IHD.html">IHD</a></li>
+            <li><a href="risk_infarctus_du_myocarde.html"> Myocardial infarction</a></li>
+            <li><a href="picture_cigarette.html">Toxic substances in cigarettes</a></li>
+            <li><a href="cig_el.html">Toxic substances in e-cigarettes</a></li>
+             <li><a href="index.html" class="action_btn">Back to home page</a></li>
+        </div>
+    </header>
+
+    <h2>Calculator for money spent on tobacco purchases</h2>     
+
+    <p>Select your values to see your expenditure !</p>
+
+    <label for="cigarettes">
+        Cigarettes smoked per day: 
+        <span class="value-display" id="cigValue">25</span>
+    </label>
+    <input type="range" id="cigarettes" min="1" max="50" value="25" oninput="calculerImpact()">
+
+    <label for="annees">
+        Years of exposure to tobacco: 
+        <span class="value-display" id="anneesValue">40</span>
+    </label>
+    <input type="range" id="annees" min="1" max="80" value="40" oninput="calculerImpact()">
+
+    <label for="prix">
+        Price (in €) of a packet of cigarettes (20 cigarettes):
+        <span class="value-display" id="prixValue">7,5</span>
+    </label>
+    <input type="number" id="prix" name="prix" min="1" max="30" value="7.5" oninput="calculerImpact()">
+    
+    <div class="results">
+        <h3>Your tobacco-related expenses:</h3>
+        
+        <div class="result-item">
+            <strong>Money spent per year :</strong>
+            <span id="prixAn">3422</span> €
+        </div>
+
+        <div class="result-item" style="color: rgb(141, 95, 32);">
+            <strong>Money spent throughout your life :</strong>
+            <div style="height: 9px;"></div>
+            <span id="prixVie">136875</span> €
+            <br>
+            <br>
+            <img src="money.png" alt="Texte descriptif de l'image" style="width:150px; height: 150px;">
+        </div>
+    </div>
+  
+</div>
+</div>
+ 
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-ban-smoking'
+        }
+
+        function calculerImpact() {
+            const cigarettes = Number(document.getElementById('cigarettes').value);
+            const annees = Number(document.getElementById('annees').value);
+            const prix = Number(document.getElementById('prix').value);
+            
+            document.getElementById('cigValue').textContent = cigarettes;
+            document.getElementById('anneesValue').textContent = annees;
+            document.getElementById('prixValue').textContent = prix;
+            
+            const prixAn = (cigarettes/20) * prix * 365;
+            const prixVie = prixAn * annees;
+           
+            document.getElementById('prixAn').textContent = prixAn.toFixed(0);
+            document.getElementById('prixVie').textContent = prixVie.toFixed(0);
+        }
+        
+        window.onload = calculerImpact;
+    </script>
+</body>
+</html>
